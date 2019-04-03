@@ -1,0 +1,15 @@
+RES_GROUP=experimental
+AZ_REGION=westeurope
+ACR_NAME=acrstudy
+ACR_SKU=Standard
+AKV_NAME=$ACR_NAME-vault
+STORAGE_ACCOUNT=experimentalem
+ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $RES_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value"     --output tsv)
+IMAGE_NAME=math/sagemath-jupyter:v1
+ACI_NAME=atjup01
+CPU=2
+MEMORY=8
+STORAGE_SHARE=jupyter                                            
+MOUNT_PATH="/home/sage/Notebooks"
+
