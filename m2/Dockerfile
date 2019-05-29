@@ -1,4 +1,4 @@
-FROM $ACR_NAME.azurecr.io/math/sagemath-jupyter:v1
+FROM acrstudy.azurecr.io/math/sagemath-jupyter:v1
 
 USER root
 
